@@ -1,0 +1,11 @@
+# use glob syntax.
+syntax: glob
+
+*~
+*.pyc
+*\#
+*\.\#*
+*.orig
+.DS_Store
+venv
+*/.vagrant
