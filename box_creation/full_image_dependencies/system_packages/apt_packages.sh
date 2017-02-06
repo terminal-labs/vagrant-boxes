@@ -1,4 +1,8 @@
-apt update
+apt-get update --yes
+apt-get install --yes ca-certificates -q
+apt-get upgrade --yes
+
+apt update --yes
 apt upgrade --yes
 
 apt install --yes linux-headers-$(uname -r)
