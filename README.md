@@ -4,7 +4,7 @@ At the top of the file there should be a short introduction and/ or overview tha
 
 ## Code Example
 
-You can  create a new vagrant box form one of these exsitng ones with the comman "vagrant package --output mynew.box"
+You can create a new vagrant box from one of these existing ones with the command "vagrant package --output mynew.box"
 
 ## Motivation
 
