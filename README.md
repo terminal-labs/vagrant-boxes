@@ -28,6 +28,30 @@ The boxes are hosted on aws s3:
 
 https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_2tb.box
 
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_2tb_full.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_10gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_10gb_full.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_20gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_20gb_full.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_30gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_30gb_full.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_40gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_40gb_full.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1204_64bit_40gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1404_64bit_40gb.box
+
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1604_64bit_40gb.box
+
 ## Contributors
 
 Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
