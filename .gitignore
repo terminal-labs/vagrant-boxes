@@ -8,4 +8,7 @@ syntax: glob
 *.orig
 .DS_Store
 venv
-*/.vagrant
+*.box
+build
+.vagrant
+.full_image_dependencies
