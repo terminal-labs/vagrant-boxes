@@ -1,3 +1,3 @@
-apt-get update --yes
-apt-get install --yes ca-certificates -q
-apt-get upgrade --yes
+apt-get install --yes --quiet ca-certificates
+apt-get update --yes --quiet
+apt-get upgrade --yes --quiet

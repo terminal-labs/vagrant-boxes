@@ -1,16 +1,15 @@
-apt-get update --yes
-apt-get install --yes ca-certificates -q
-apt-get upgrade --yes
-
-apt update --yes
-apt upgrade --yes
+apt install --yes --quiet ca-certificates
+apt update --yes --quiet
+apt upgrade --yes --quiet
 
 apt install --yes linux-headers-$(uname -r)
 
+apt install --yes golang-go
+
 apt install --yes build-essential
-apt install --yes python-setuptools
 apt install --yes python-virtualenv
-apt install --yes python-pip
+apt install --yes python-setuptools
+apt install --yes python-python-pip
 apt install --yes imagemagick
 apt install --yes libfreetype6
 apt install --yes libfontconfig1
@@ -42,6 +41,8 @@ apt install --yes libjpeg62-turbo-dev
 apt install --yes libyaml-dev
 apt install --yes libfreetype6-dev
 apt install --yes libfontconfig1-dev
+
+apt install --yes glances
 
 apt install --yes git
 apt install --yes mercurial

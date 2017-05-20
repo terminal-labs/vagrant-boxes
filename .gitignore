@@ -12,3 +12,4 @@ venv
 build
 .vagrant
 .full_image_dependencies
+Vagrantfile.old
