@@ -46,10 +46,6 @@ https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_
 
 https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_40gb_full.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1204_64bit_40gb.box
-
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1404_64bit_40gb.box
-
 https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1604_64bit_40gb.box
 
 ## Contributors
