@@ -5,7 +5,7 @@
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian_preseed.cfg <wait>",
         "debian-installer=en_US.UTF-8 <wait>",
         "auto <wait>",
         "locale=en_US.UTF-8 <wait>",
@@ -27,7 +27,7 @@
       "http_directory": "http",
       "iso_urls": [
         "iso/debian-8.8.0-amd64-netinst.iso",
-        "http://cdimage.debian.org/cdimage/release/8.8.0/amd64/iso-cd/debian-8.8.0-amd64-netinst.iso"
+        "https://s3-us-west-1.amazonaws.com/terminal-labs-distro-isos/debian-8.8.0-amd64-netinst.iso"
       ],
       "iso_checksum_type": "sha256",
       "iso_checksum": "2c07ff8cc766767610566297b8729740f923735e790c8e78b718fb93923b448e",
