@@ -57,7 +57,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-debian-jessie-64bit-40gb",
+      "output": "builds/tl-debian-jessie-64bit-40gb.box",
       "type": "vagrant"
     }
   ]

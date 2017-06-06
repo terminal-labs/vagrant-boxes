@@ -21,7 +21,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size": 61440,
+      "disk_size":  81920,
       "guest_os_type": "Debian_64",
       "headless": false,
       "http_directory": "http",
@@ -38,13 +38,13 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-debian-jessie-64bit-60gb",
+      "vm_name": "tl-debian-jessie-64bit-80gb",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "4096"
+          "8192"
         ],
         [
           "modifyvm",
@@ -57,7 +57,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-debian-jessie-64bit-60gb",
+      "output": "builds/tl-debian-jessie-64bit-80gb.box",
       "type": "vagrant"
     }
   ]

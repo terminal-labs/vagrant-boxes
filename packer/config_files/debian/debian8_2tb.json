@@ -1,11 +1,23 @@
 {
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/setup.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/cleanup.sh"
+    }
+  ],
   "builders": [
     {
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
-        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+        " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian_preseed.cfg <wait>",
         "debian-installer=en_US.UTF-8 <wait>",
         "auto <wait>",
         "locale=en_US.UTF-8 <wait>",
@@ -21,7 +33,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size": 30720,
+      "disk_size": 2097152,
       "guest_os_type": "Debian_64",
       "headless": false,
       "http_directory": "http",
@@ -38,13 +50,13 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-debian-jessie-64bit-30gb",
+      "vm_name": "tl-debian-jessie-64bit-2tb",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "1024"
+          "512"
         ],
         [
           "modifyvm",
@@ -57,7 +69,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-debian-jessie-64bit-30gb",
+      "output": "builds/tl-debian-jessie-64bit-2tb.box",
       "type": "vagrant"
     }
   ]

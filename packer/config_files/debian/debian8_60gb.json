@@ -1,16 +1,4 @@
 {
-  "provisioners": [
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/setup.sh"
-    },
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/cleanup.sh"
-    }
-  ],
   "builders": [
     {
       "type": "virtualbox-iso",
@@ -33,7 +21,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size": 10240,
+      "disk_size": 61440,
       "guest_os_type": "Debian_64",
       "headless": false,
       "http_directory": "http",
@@ -50,13 +38,13 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-debian-jessie-64bit-10gb",
+      "vm_name": "tl-debian-jessie-64bit-60gb",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "256"
+          "4096"
         ],
         [
           "modifyvm",
@@ -69,7 +57,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-debian-jessie-64bit-10gb",
+      "output": "builds/tl-debian-jessie-64bit-60gb.box",
       "type": "vagrant"
     }
   ]
