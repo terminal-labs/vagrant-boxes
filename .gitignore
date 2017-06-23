@@ -13,3 +13,5 @@ build
 .vagrant
 .full_image_dependencies
 Vagrantfile.old
+packer/packer
+packer/packer_cache
