@@ -37,6 +37,32 @@ rm -rf .vagrant
 cd -
 rm tl-debian-jessie-64bit-20gb-full/Vagrantfile.old
 
+mv tl-debian-jessie-64bit-30gb-full/Vagrantfile tl-debian-jessie-64bit-30gb-full/Vagrantfile.old
+cp tl-debian-jessie-64bit-30gb/Vagrantfile tl-debian-jessie-64bit-30gb-full/Vagrantfile
+cp build/tl-debian-jessie-64bit-30gb.box tl-debian-jessie-64bit-30gb-full/tl-debian-jessie-64bit-30gb.box
+cd tl-debian-jessie-64bit-30gb-full
+vagrant up
+vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+vagrant package --output ../build/tl-debian-jessie-64bit-30gb-full.box
+vagrant destroy -f
+rm -rf .full-image-dependencies
+rm -rf .vagrant
+cd -
+rm tl-debian-jessie-64bit-30gb-full/Vagrantfile.old
+
+mv tl-debian-jessie-64bit-40gb-full/Vagrantfile tl-debian-jessie-64bit-40gb-full/Vagrantfile.old
+cp tl-debian-jessie-64bit-40gb/Vagrantfile tl-debian-jessie-64bit-40gb-full/Vagrantfile
+cp build/tl-debian-jessie-64bit-40gb.box tl-debian-jessie-64bit-40gb-full/tl-debian-jessie-64bit-40gb.box
+cd tl-debian-jessie-64bit-40gb-full
+vagrant up
+vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+vagrant package --output ../build/tl-debian-jessie-64bit-40gb-full.box
+vagrant destroy -f
+rm -rf .full-image-dependencies
+rm -rf .vagrant
+cd -
+rm tl-debian-jessie-64bit-20gb-full/Vagrantfile.old
+
 rm -rf packer/builds
 
 rm -rf tl-debian-jessie-64bit-2tb-gui-full/.full-image-dependencies

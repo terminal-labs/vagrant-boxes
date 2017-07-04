@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-box_name = "tl-debian-jessie-64bit-30gb-full"
+box_name = "tl-debian-jessie-64bit-30gb"
 
 Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
@@ -9,6 +9,6 @@ Vagrant.configure("2") do |config|
     provider.name = box_name
     override.vm.box = box_name + ".box" 
     override.vm.box_url = ["file://" + box_name + ".box", "https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/" + box_name + ".box"]
-    provider.customize ['modifyvm', :id, '--nictype1', 'virtio']  
+    provider.customize ['modifyvm', :id, '--nictype1', 'virtio'] 
   end
 end
