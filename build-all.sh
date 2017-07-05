@@ -36,4 +36,20 @@ vagrant ssh --command "df -h"
 vagrant destroy --force
 cd -
 
+mv packer/builds/tl-debian-jessie-64bit-60gb.box build/tl-debian-jessie-64bit-60gb.box
+cp build/tl-debian-jessie-64bit-60gb.box tl-debian-jessie-64bit-60gb/tl-debian-jessie-64bit-60gb.box
+cd tl-debian-jessie-64bit-60gb
+vagrant up
+vagrant ssh --command "df -h"
+vagrant destroy --force
+cd -
+
+mv packer/builds/tl-debian-jessie-64bit-80gb.box build/tl-debian-jessie-64bit-80gb.box
+cp build/tl-debian-jessie-64bit-80gb.box tl-debian-jessie-64bit-80gb/tl-debian-jessie-64bit-80gb.box
+cd tl-debian-jessie-64bit-80gb
+vagrant up
+vagrant ssh --command "df -h"
+vagrant destroy --force
+cd -
+
 bash build-full-vbox-images.sh
