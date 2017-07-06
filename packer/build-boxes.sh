@@ -1,3 +1,4 @@
+./packer build config-files/debian/debian8-2tb-gui.json
 ./packer build config-files/debian/debian8-2tb.json
 
 ./packer build config-files/debian/debian8-20gb.json

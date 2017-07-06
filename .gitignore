@@ -11,7 +11,7 @@ venv
 *.box
 build
 .vagrant
-.full_image_dependencies
+.full-image-dependencies
 Vagrantfile.old
 packer/packer
 packer/packer_cache

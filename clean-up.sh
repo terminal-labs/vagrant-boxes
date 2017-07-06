@@ -18,9 +18,11 @@ rm -rf tl-debian-jessie-64bit-40gb-full/.full-image-dependencies
 rm -rf tl-debian-jessie-64bit-60gb-full/.full-image-dependencies
 rm -rf tl-debian-jessie-64bit-80gb-full/.full-image-dependencies
 
+rm -rf tl-debian-jessie-64bit-2tb-gui/.vagrant
+rm -rf tl-debian-jessie-64bit-2tb/.vagrant
 rm -rf tl-debian-jessie-64bit-2tb-gui-full/.vagrant
 rm -rf tl-debian-jessie-64bit-2tb-full/.vagrant
-rm -rf tl-debian-jessie-64bit-2tb/.vagrant
+
 
 rm -rf tl-debian-jessie-64bit-20gb/.vagrant
 rm -rf tl-debian-jessie-64bit-30gb/.vagrant
@@ -34,9 +36,10 @@ rm -rf tl-debian-jessie-64bit-40gb-full/.vagrant
 rm -rf tl-debian-jessie-64bit-60gb-full/.vagrant
 rm -rf tl-debian-jessie-64bit-80gb-full/.vagrant
 
+rm -rf tl-debian-jessie-64bit-2tb-gui/*.box
+rm -rf tl-debian-jessie-64bit-2tb/*.box
 rm -rf tl-debian-jessie-64bit-2tb-gui-full/*.box
 rm -rf tl-debian-jessie-64bit-2tb-full/*.box
-rm -rf tl-debian-jessie-64bit-2tb/*.box
 
 rm -rf tl-debian-jessie-64bit-20gb/*.box
 rm -rf tl-debian-jessie-64bit-30gb/*.box
