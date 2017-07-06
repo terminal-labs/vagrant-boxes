@@ -93,26 +93,4 @@ rm tl-debian-jessie-64bit-80gb-full/Vagrantfile.old
 
 rm -rf packer/builds
 
-rm -rf tl-debian-jessie-64bit-2tb-gui-full/.full-image-dependencies
-rm -rf tl-debian-jessie-64bit-2tb-full/.full-image-dependencies
-rm -rf tl-debian-jessie-64bit-2tb/.full-image-dependencies
-
-rm -rf tl-debian-jessie-64bit-20gb-full/.full-image-dependencies
-rm -rf tl-debian-jessie-64bit-30gb-full/.full-image-dependencies
-rm -rf tl-debian-jessie-64bit-40gb-full/.full-image-dependencies
-
-rm -rf tl-debian-jessie-64bit-2tb-gui-full/.vagrant
-rm -rf tl-debian-jessie-64bit-2tb-full/.vagrant
-rm -rf tl-debian-jessie-64bit-2tb/.vagrant
-
-rm -rf tl-debian-jessie-64bit-20gb-full/.vagrant
-rm -rf tl-debian-jessie-64bit-30gb-full/.vagrant
-rm -rf tl-debian-jessie-64bit-40gb-full/.vagrant
-
-rm -rf tl-debian-jessie-64bit-2tb-gui-full/*.box
-rm -rf tl-debian-jessie-64bit-2tb-full/*.box
-rm -rf tl-debian-jessie-64bit-2tb/*.box
-
-rm -rf tl-debian-jessie-64bit-20gb-full/*.box
-rm -rf tl-debian-jessie-64bit-30gb-full/*.box
-rm -rf tl-debian-jessie-64bit-40gb-full/*.box
+bash clean-up.sh

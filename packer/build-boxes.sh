@@ -7,5 +7,4 @@
 ./packer build config-files/debian/debian8-80gb.json
 
 
-
 #./packer build config-files/ubuntu/ubuntu16-2tb.json
