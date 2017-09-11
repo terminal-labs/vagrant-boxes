@@ -1,0 +1,50 @@
+mkdir -p build
+
+{#
+{% for name in ['2tb-gui-full', '2tb-full'] %}
+  cp -r box-creation/full-image-dependencies tl-debian-jessie-64bit-{{ name }}/.full-image-dependencies
+{% endfor %}
+
+{% for size in [20, 30, 40, 60, 80] %}
+  cp -r box-creation/full-image-dependencies tl-debian-jessie-64bit-{{ size }}gb-full/.full-image-dependencies
+{% endfor %}
+
+
+{% for name in ['2tb-gui', '2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
+  mv tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile.old
+  cp tl-debian-jessie-64bit-{{ name }}/Vagrantfile tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile
+  cp build/tl-debian-jessie-64bit-{{ name }}.box tl-debian-jessie-64bit-{{ name }}-full/tl-debian-jessie-64bit-{{ name }}.box
+  cd tl-debian-jessie-64bit-{{ name }}-full
+  vagrant up
+  vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+  vagrant package --output ../build/tl-debian-jessie-64bit-{{ name }}-full.box
+  vagrant destroy -f
+  rm -rf .full-image-dependencies
+  rm -rf .vagrant
+  cd -
+  rm tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile.old
+{% endfor %}
+#}
+
+{% for name in ['2tb-full'] %}
+  cp -r box-creation/full-image-dependencies tl-ubuntu-1604-64bit-{{ name }}/.full-image-dependencies
+{% endfor %}
+
+{% for name in ['2tb'] %}
+  mv tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile.old
+  cp tl-ubuntu-1604-64bit-{{ name }}/Vagrantfile tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile
+  cp build/tl-ubuntu-1604-64bit-{{ name }}.box tl-ubuntu-1604-64bit-{{ name }}-full/tl-ubuntu-1604-64bit-{{ name }}.box
+  cd tl-ubuntu-1604-64bit-{{ name }}-full
+  vagrant up
+  vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+  vagrant package --output ../build/tl-ubuntu-1604-64bit-{{ name }}-full.box
+  vagrant destroy -f
+  rm -rf .full-image-dependencies
+  rm -rf .vagrant
+  cd -
+  rm tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile.old
+{% endfor %}
+
+rm -rf packer/builds
+
+bash clean-up.sh
