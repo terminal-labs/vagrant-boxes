@@ -1,6 +1,4 @@
-cd packer
-bash build-boxes.sh
-cd -
+bash build-base-boxes.sh
 
 mkdir -p build
 
@@ -36,4 +34,4 @@ mkdir -p build
   cd -
 {% endfor %}
 
-bash build-full-vbox-images.sh
+bash build-full-boxes.sh
