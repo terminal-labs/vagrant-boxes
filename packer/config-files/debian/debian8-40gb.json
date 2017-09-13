@@ -1,4 +1,4 @@
-{  
+{
   "provisioners": [
     {
       "type": "shell",
@@ -33,7 +33,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size":  40960,
+      "disk_size": 40960,
       "guest_os_type": "Debian_64",
       "headless": false,
       "http_directory": "http",

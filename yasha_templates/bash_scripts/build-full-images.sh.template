@@ -9,7 +9,6 @@ mkdir -p build
   cp -r box-creation/full-image-dependencies tl-debian-jessie-64bit-{{ size }}gb-full/.full-image-dependencies
 {% endfor %}
 
-
 {% for name in ['2tb-gui', '2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
   mv tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile.old
   cp tl-debian-jessie-64bit-{{ name }}/Vagrantfile tl-debian-jessie-64bit-{{ name }}-full/Vagrantfile
@@ -30,7 +29,11 @@ mkdir -p build
   cp -r box-creation/full-image-dependencies tl-ubuntu-1604-64bit-{{ name }}/.full-image-dependencies
 {% endfor %}
 
-{% for name in ['2tb'] %}
+{% for size in [20, 30, 40, 60, 80] %}
+  cp -r box-creation/full-image-dependencies tl-ubuntu-1604-64bit-{{ size }}gb-full/.full-image-dependencies
+{% endfor %}
+
+{% for name in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
   mv tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile.old
   cp tl-ubuntu-1604-64bit-{{ name }}/Vagrantfile tl-ubuntu-1604-64bit-{{ name }}-full/Vagrantfile
   cp build/tl-ubuntu-1604-64bit-{{ name }}.box tl-ubuntu-1604-64bit-{{ name }}-full/tl-ubuntu-1604-64bit-{{ name }}.box

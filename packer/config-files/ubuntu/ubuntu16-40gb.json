@@ -41,7 +41,7 @@
         "<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size": 20480,
+      "disk_size": 40960,
       "guest_os_type": "Ubuntu_64",
       "headless": false,
       "http_directory": "http",
@@ -58,13 +58,13 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-ubuntu-1604-64bit-20gb",
+      "vm_name": "tl-ubuntu-1604-64bit-40gb",
       "vboxmanage": [
         [
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "512"
+          "2048"
         ],
         [
           "modifyvm",
@@ -77,7 +77,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-ubuntu-1604-64bit-20gb.box",
+      "output": "builds/tl-ubuntu-1604-64bit-40gb.box",
       "type": "vagrant"
     }
   ]
