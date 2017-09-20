@@ -1,0 +1,33 @@
+rm -rf packer/packer_cache/
+rm -rf packer/output-virtualbox-iso
+rm -rf packer/builds
+
+{% for name in ['2tb', '2tb-full', '2tb-gui-full'] %}
+  rm -rf tl-debian-jessie-64bit-{{ name }}/.full-image-dependencies
+  rm -rf tl-debian-jessie-64bit-{{ name }}/.vagrant
+  rm -rf tl-debian-jessie-64bit-{{ name }}/*.box
+{% endfor %}
+
+{% for size in [20, 30, 40, 60, 80] %}
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb/*.box
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb-full/*.box
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb/.vagrant
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb-full/.vagrant
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb/.full-image-dependencies
+  rm -rf tl-debian-jessie-64bit-{{ size }}gb-full/.full-image-dependencies
+{% endfor %}
+
+{% for name in ['2tb', '2tb-full'] %}
+  rm -rf tl-ubuntu-1604-64bit-{{ name }}/.full-image-dependencies
+  rm -rf tl-ubuntu-1604-64bit-{{ name }}/.vagrant
+  rm -rf tl-ubuntu-1604-64bit-{{ name }}/*.box
+{% endfor %}
+
+{% for size in [20, 30, 40, 60, 80] %}
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb/*.box
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb-full/*.box
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb/.vagrant
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb-full/.vagrant
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb/.full-image-dependencies
+  rm -rf tl-ubuntu-1604-64bit-{{ size }}gb-full/.full-image-dependencies
+{% endfor %}

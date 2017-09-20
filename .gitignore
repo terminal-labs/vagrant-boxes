@@ -11,5 +11,9 @@ venv
 *.box
 build
 .vagrant
-.full_image_dependencies
+.full-image-dependencies
 Vagrantfile.old
+scripts
+packer/packer
+packer/packer_cache
+packer/output-virtualbox-iso/
