@@ -26,27 +26,25 @@ Describe and show how to run the tests with code examples.
 
 The boxes are hosted on aws s3:
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_2tb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-2tb.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_2tb_full.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-2tb-full.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_10gb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-10gb.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_10gb_full.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-10gb-full.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_20gb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-20gb.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_20gb_full.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-20gb-full.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_30gb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-30gb.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_30gb_full.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-30gb-full.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_40gb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-40gb.box
 
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_debian_jessie_64bit_40gb_full.box
-
-https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl_ubuntu_1604_64bit_40gb.box
+https://s3-us-west-1.amazonaws.com/terminal-labs-vagrant-boxes/tl-debian-jessie-64bit-40gb-full.box
 
 ## Contributors
 
