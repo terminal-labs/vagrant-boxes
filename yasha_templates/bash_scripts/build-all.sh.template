@@ -2,8 +2,7 @@ bash build-base-boxes.sh
 
 mkdir -p build
 
-{#
-{% for name in ['2tb', '2tb-gui'] %}
+{% for name in ['2tb'] %}
   mv packer/builds/tl-debian-jessie-64bit-{{ name }}.box build/tl-debian-jessie-64bit-{{ name }}.box
   cp build/tl-debian-jessie-64bit-{{ name }}.box tl-debian-jessie-64bit-{{ name }}/tl-debian-jessie-64bit-{{ name }}.box
   cd tl-debian-jessie-64bit-{{ name }}
@@ -22,7 +21,6 @@ mkdir -p build
   vagrant destroy --force
   cd -
 {% endfor %}
-#}
 
 {% for name in ['2tb'] %}
   mv packer/builds/tl-ubuntu-1604-64bit-{{ name }}.box build/tl-ubuntu-1604-64bit-{{ name }}.box
