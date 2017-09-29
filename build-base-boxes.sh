@@ -1,27 +1,5 @@
-cd packer
-## debian8 boxes
-./packer build config-files/debian/debian8-2tb.json
+mkdir -p scripts
 
-./packer build config-files/debian/debian8-20gb.json
-./packer build config-files/debian/debian8-30gb.json
-./packer build config-files/debian/debian8-40gb.json
-./packer build config-files/debian/debian8-60gb.json
-./packer build config-files/debian/debian8-80gb.json
+yasha yasha_templates/bash_scripts/build-base-boxes.sh.template -o scripts/build-base-boxes.sh
 
-## ubuntu14 boxes
-./packer build config-files/ubuntu/ubuntu14-2tb.json
-
-./packer build config-files/ubuntu/ubuntu14-20gb.json
-./packer build config-files/ubuntu/ubuntu14-30gb.json
-./packer build config-files/ubuntu/ubuntu14-40gb.json
-./packer build config-files/ubuntu/ubuntu14-60gb.json
-./packer build config-files/ubuntu/ubuntu14-80gb.json
-
-# ubuntu16 boxes
-./packer build config-files/ubuntu/ubuntu16-2tb.json
-
-./packer build config-files/ubuntu/ubuntu16-20gb.json
-./packer build config-files/ubuntu/ubuntu16-30gb.json
-./packer build config-files/ubuntu/ubuntu16-40gb.json
-./packer build config-files/ubuntu/ubuntu16-60gb.json
-./packer build config-files/ubuntu/ubuntu16-80gb.json
+bash scripts/build-base-boxes.sh

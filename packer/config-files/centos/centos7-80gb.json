@@ -18,7 +18,7 @@
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos_preseed.cfg<enter><wait>"
       ],
       "boot_wait": "5s",
-      "disk_size": 30720,
+      "disk_size": 81920,
       "guest_os_type": "RedHat_64",
       "headless": false,
       "http_directory": "http",
@@ -35,7 +35,7 @@
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-centos-7-64bit-30gb",
+      "vm_name": "tl-centos-7-64bit-80gb",
       "vboxmanage": [
         [
           "modifyvm",
@@ -54,7 +54,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/tl-centos-7-64bit-30gb.box",
+      "output": "builds/tl-centos-7-64bit-80gb.box",
       "type": "vagrant"
     }
   ]
