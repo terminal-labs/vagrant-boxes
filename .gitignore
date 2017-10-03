@@ -13,7 +13,7 @@ build
 .vagrant
 .full-image-dependencies
 Vagrantfile.old
-scripts
+/scripts
 packer/packer
 packer/packer_cache
 packer/output-virtualbox-iso/
