@@ -1,0 +1,18 @@
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.provider :virtualbox do |provider, override|
+    provider.name = "fedora25-4096mb"
+    override.vm.box = "terminal-labs/tl-fedora-25-64bit-2tb"
+    override.vm.box_url = "terminal-labs/tl-fedora-25-64bit-2tb"
+    override.vm.box_version = "0.1"
+    provider.customize ['modifyvm', :id, '--nictype1', 'virtio']
+    provider.customize ['modifyvm', :id, '--nictype2', 'virtio']
+    provider.memory = 4096
+  end
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+  config.vm.network "private_network", type: "dhcp"
+  #config.vm.network :private_network, ip: "172.28.128.128"
+end
