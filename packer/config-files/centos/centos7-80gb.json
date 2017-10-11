@@ -1,31 +1,20 @@
 {
-  "provisioners": [
-    {
+  "provisioners": [{
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/rhel_family/setup.sh"
-    },
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/rhel_family/cleanup.sh"
-    }
-  ],
-  "builders": [
-    {
+      "scripts": [ "scripts/rhel_family/setup.sh", "scripts/rhel_family/cleanup.sh" ]
+  }],
+
+  "builders": [{
       "type": "virtualbox-iso",
-      "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos_preseed.cfg<enter><wait>"
-      ],
+      "boot_command":
+          [ "<tab> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos_preseed.cfg <enter>"],
       "boot_wait": "5s",
       "disk_size": 81920,
       "guest_os_type": "RedHat_64",
       "headless": false,
       "http_directory": "http",
-      "iso_urls": [
-        "CentOS-7-x86_64-Minimal-1708.iso",
-        "https://s3-us-west-1.amazonaws.com/terminal-labs-distro-isos/CentOS-7-x86_64-Minimal-1708.iso"
-      ],
+      "iso_url": "https://s3-us-west-1.amazonaws.com/terminal-labs-distro-isos/CentOS-7-x86_64-Minimal-1708.iso",
       "iso_checksum_type": "sha256",
       "iso_checksum": "bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5",
       "ssh_username": "vagrant",
@@ -37,25 +26,13 @@
       "virtualbox_version_file": ".vbox_version",
       "vm_name": "tl-centos-7-64bit-80gb",
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "4096"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
+          ["modifyvm","{{.Name}}","--memory","4096"],
+          ["modifyvm","{{.Name}}","--cpus","1"]
       ]
-    }
-  ],
-  "post-processors": [
-    {
+  }],
+
+  "post-processors": [{
       "output": "builds/tl-centos-7-64bit-80gb.box",
       "type": "vagrant"
-    }
-  ]
+  }]
 }
