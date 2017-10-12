@@ -6,12 +6,14 @@ cd packer
 	./packer build -force config-files/centos/centos7-{{ size }}.json
 
 # debian8 boxes
-#	./packer build -force config-files/debian/debian8-{{ size }}.json
+	./packer build -force config-files/debian/debian8-{{ size }}.json
 
 # ubuntu14 boxes
-#	./packer build -force config-files/ubuntu/ubuntu14-{{ size }}.json
+	./packer build -force config-files/ubuntu/ubuntu14-{{ size }}.json
 
 # ubuntu16 boxes
-#	./packer build -force config-files/ubuntu/ubuntu16-{{ size }}.json
+	./packer build -force config-files/ubuntu/ubuntu16-{{ size }}.json
 
+# fedora25 boxes
+	./packer build -force config-files/fedora/fedora25-{{ size }}.json
 {% endfor %}
