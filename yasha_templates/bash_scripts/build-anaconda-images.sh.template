@@ -1,0 +1,22 @@
+mkdir -p build
+
+{% for os in ['tl-ubuntu-1604-64bit-2tb-anaconda'] %}
+		cp -r box-creation/full-image-dependencies {{ os }}{{ size }}/.full-image-dependencies
+
+		mv {{ os }}{{ size }}/Vagrantfile {{ os }}{{ size }}/Vagrantfile.old
+		cp {{ os }}{{ size }}/Vagrantfile {{ os }}{{ size }}/Vagrantfile
+		cp build/{{ os }}{{ name }}.box {{ os }}{{ size }}/{{ os }}{{ size }}.box
+		cd {{ os }}{{ name }}
+		vagrant up
+		vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+		vagrant package --output ../build/{{ os }}{{ size }}.box
+		vagrant destroy -f
+		rm -rf .full-image-dependencies
+		rm -rf .vagrant
+		cd -
+		rm {{ os }}{{ size }}/Vagrantfile.old
+{% endfor %}
+
+rm -rf packer/builds
+
+bash clean-up.sh
