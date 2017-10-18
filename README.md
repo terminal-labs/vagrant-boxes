@@ -21,3 +21,15 @@ All tl-ubuntu-1604-64bit boxes have:
 * linux-headers
 * dkms
 * vboxguestadditions
+
+All tl-centos-7-64bit boxes have:
+* Development Tools
+* kernel-headers
+* wget
+* vboxguestadditions
+
+All tl-fedora-25-64bit boxes have:
+* Development Tools
+* kernel-headers
+* wget
+* vboxguestadditions
