@@ -9,3 +9,15 @@ All tl-debian-jessie-64bit boxes have:
 * linux-headers
 * dkms
 * vboxguestadditions
+
+All tl-ubuntu-1404-64bit boxes have:
+* build-essential
+* linux-headers
+* dkms
+* vboxguestadditions
+
+All tl-ubuntu-1604-64bit boxes have:
+* build-essential
+* linux-headers
+* dkms
+* vboxguestadditions
