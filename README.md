@@ -6,10 +6,10 @@ The boxes are hosted at https://app.vagrantup.com/terminal-labs
 
 All tl-debian-jessie-64bit boxes have:
 
-build-essential
+*build-essential
 
-linux-headers
+*linux-headers
 
-dkms
+*dkms
 
-vboxguestadditions
+*vboxguestadditions
