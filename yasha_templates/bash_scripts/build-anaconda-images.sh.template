@@ -1,0 +1,18 @@
+mkdir -p build
+
+{% for os in ['tl-debian-jessie-64bit-2tb', 'tl-ubuntu-1604-64bit-2tb'] %}
+		cp -r box-creation/anaconda-image-dependencies {{ os }}-anaconda/.anaconda-image-dependencies
+
+		mv {{ os }}-anaconda/Vagrantfile {{ os }}-anaconda/Vagrantfile.old
+		cp {{ os }}/Vagrantfile {{ os }}-anaconda/Vagrantfile
+		cp build/{{ os }}.box {{ os }}-anaconda/{{ os }}.box
+		cd {{ os }}-anaconda
+		vagrant up
+		vagrant ssh -c "cd /vagrant/.anaconda-image-dependencies;sudo bash install-packages.sh"
+		vagrant package --output ../build/{{ os }}-anaconda.box
+		vagrant destroy -f
+		rm -rf .full-image-dependencies
+		rm -rf .vagrant
+		cd -
+		rm {{ os }}-anaconda/Vagrantfile.old
+{% endfor %}
