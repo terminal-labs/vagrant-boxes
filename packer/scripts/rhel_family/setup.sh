@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Add vagrant user to sudoers.
 
+yum update -y
 yum groupinstall 'Development Tools' -y
 yum install kernel-headers -y
+yum install dkms -y
 yum install wget -y
 
 echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
