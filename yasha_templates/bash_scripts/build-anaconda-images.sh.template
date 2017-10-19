@@ -1,6 +1,6 @@
 mkdir -p build
 
-{% for os in ['tl-debian-jessie-64bit-2tb', 'tl-ubuntu-1604-64bit-2tb'] %}
+{% for os in ['tl-debian-jessie-64bit-2tb','tl-ubuntu-1404-64bit-2tb', 'tl-ubuntu-1604-64bit-2tb'] %}
 		cp -r box-creation/anaconda-image-dependencies {{ os }}-anaconda/.anaconda-image-dependencies
 
 		mv {{ os }}-anaconda/Vagrantfile {{ os }}-anaconda/Vagrantfile.old
