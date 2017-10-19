@@ -1,4 +1,4 @@
-All tl-debian-jessie-64bit base boxes have:
+All tl-debian-jessie-64bit full boxes have:
 * build-essential
 * linux-headers
 * dkms
