@@ -1,0 +1,25 @@
+mkdir -p packer/config-files/fedora/
+mkdir -p packer/config-files/centos/
+mkdir -p packer/config-files/debian/
+mkdir -p packer/config-files/ubuntu/
+
+{% for HOSTS, OS in [['debian', 'debian8'],
+                     ['centos', 'centos7'],
+                     ['ubuntu', 'ubuntu14'],
+                     ['ubuntu', 'ubuntu16'],
+                     ['fedora', 'fedora25']
+] %}
+
+{% for MB_SIZE, SIZE in [['20480', '20gb'],
+                         ['30720', '30gb'],
+                         ['40960', '40gb'],
+                         ['61440', '60gb'],
+                         ['81920', '80gb'],
+                         ['2097152', '2tb']
+] %}
+
+yasha --no-variable-file --SSD={{ MB_SIZE }} --SIZE={{ SIZE }} yasha_templates/json_generic/{{ OS }}-generic.json -o packer/config-files/{{ HOSTS }}/{{ OS }}-{{ SIZE }}.json
+
+{% endfor %}
+{% endfor %}
+

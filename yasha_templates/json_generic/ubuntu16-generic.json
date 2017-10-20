@@ -1,7 +1,7 @@
 {
   "provisioners": [{
       "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
       "scripts": [ "scripts/debian_family/setup.sh", "scripts/debian_family/cleanup.sh" ]
   }],
 
@@ -29,11 +29,11 @@
           " netcfg/get_hostname=vagrant<wait>",
           " grub-installer/bootdev=/dev/sda<wait>",
           " noapic<wait>",
-          " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu_preseed.cfg",
+          {% raw %} " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu_preseed.cfg" {% endraw %},
           " -- <wait>",
           "<enter><wait>" ],
       "boot_wait": "5s",
-      "disk_size": 20480,
+      "disk_size": {{ SSD }},
       "guest_os_type": "Ubuntu_64",
       "headless": false,
       "http_directory": "http",
@@ -45,17 +45,17 @@
       "ssh_port": 22,
       "ssh_wait_timeout": "600s",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_path": {% raw %} "VBoxGuestAdditions_{{.Version}}.iso" {% endraw %},
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tl-ubuntu-1604-64bit-20gb",
+      "vm_name": "tl-ubuntu-1604-64bit-{{ SIZE }}",
       "vboxmanage": [
-          ["modifyvm","{{.Name}}","--memory","4096"],
-          ["modifyvm","{{.Name}}","--cpus","1"]
+         {% raw %} ["modifyvm","{{.Name}}","--memory","4096"] {% endraw %},
+         {% raw %} ["modifyvm","{{.Name}}","--cpus","1"] {% endraw %}
       ]
   }],
 
   "post-processors": [{
-      "output": "builds/tl-ubuntu-1604-64bit-20gb.box",
+      "output": "builds/tl-ubuntu-1604-64bit-{{ SIZE }}.box",
       "type": "vagrant"
   }]
 }
