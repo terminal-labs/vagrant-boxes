@@ -9,6 +9,9 @@ Usage:
 clone repo
 
 sudo bash setup-root.sh
+
 virtualenv venv
+
 . venv/bin/activate
+
 bash setup-nonroot.sh
