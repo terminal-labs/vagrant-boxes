@@ -1,6 +1,6 @@
 cd packer
 
-{% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
+{% for size in ['20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
 
 # centos7 boxes
 #	./packer build -force config-files/centos/centos7-{{ size }}.json
@@ -15,5 +15,9 @@ cd packer
 	./packer build -force config-files/ubuntu/ubuntu16-{{ size }}.json
 
 # fedora25 boxes
+<<<<<<< HEAD:yasha_templates/bash_scripts/build-base-boxes.sh.template
+#       ./packer build -force config-files/fedora/fedora25-{{ size }}.json
+=======
 #	./packer build -force config-files/fedora/fedora25-{{ size }}.json
+>>>>>>> dc11e90ace104b3ced70ea2c01426ac750b7fb89:yasha-templates/bash-scripts/build-base-boxes.sh.template
 {% endfor %}
