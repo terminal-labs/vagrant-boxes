@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Add vagrant user to sudoers.
 
+yum update -y
 yum groupinstall 'Development Tools' -y
 yum install kernel-headers -y
+yum install dkms -y
 yum install wget -y
 
 echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
@@ -14,10 +16,11 @@ wget --no-check-certificate https://raw.github.com/mitchellh/vagrant/master/keys
 chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant /home/vagrant/.ssh
 
-wget http://download.virtualbox.org/virtualbox/5.1.26/VBoxGuestAdditions_5.1.26.iso
+wget http://download.virtualbox.org/virtualbox/5.1.30/VBoxGuestAdditions_5.1.30.iso
 mkdir /media/VBoxGuestAdditions
-mount -o loop,ro VBoxGuestAdditions_5.1.26.iso /media/VBoxGuestAdditions
+mount -o loop,ro VBoxGuestAdditions_5.1.30.iso /media/VBoxGuestAdditions
 sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
-rm VBoxGuestAdditions_5.1.26.iso
+rm VBoxGuestAdditions_5.1.30.iso
+
 sudo umount /media/VBoxGuestAdditions
 sudo rmdir /media/VBoxGuestAdditions

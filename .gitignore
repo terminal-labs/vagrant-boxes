@@ -12,6 +12,7 @@ venv
 build
 .vagrant
 .full-image-dependencies
+.anaconda-image-dependencies
 Vagrantfile.old
 /scripts
 packer/packer
