@@ -15,7 +15,6 @@ cd packer
 	./packer build -force config-files/ubuntu/ubuntu16-{{ size }}.json
 
 # fedora25 boxes
-
 #       ./packer build -force config-files/fedora/fedora25-{{ size }}.json
 
 {% endfor %}
