@@ -8,10 +8,6 @@ Usage:
 
 clone repo
 
-sudo bash setup-root.sh
+cd into repo
 
-virtualenv venv
-
-. venv/bin/activate
-
-bash setup-nonroot.sh
+bash make.sh
