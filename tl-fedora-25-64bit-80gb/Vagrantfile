@@ -1,18 +1,15 @@
-
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+dirname = File.basename(Dir.getwd)
+box_name = dirname
+
 Vagrant.configure("2") do |config|
+  config.ssh.forward_agent = true
   config.vm.provider :virtualbox do |provider, override|
-    provider.name = "fedora25-8192mb"
-    override.vm.box = "terminal-labs/tl-fedora-25-64bit-80gb"
-    override.vm.box_url = "terminal-labs/tl-fedora-25-64bit-80gb"
-    override.vm.box_version = "0.1"
+    provider.name = box_name
+    override.vm.box = box_name + ".box"
+    override.vm.box_url = "file://../packer/builds/" + box_name + ".box"
     provider.customize ['modifyvm', :id, '--nictype1', 'virtio']
-    provider.customize ['modifyvm', :id, '--nictype2', 'virtio']
-    provider.memory = 8192
   end
-  config.vm.synced_folder ".", "/vagrant", type: "rsync"
-  config.vm.network "private_network", type: "dhcp"
-  #config.vm.network :private_network, ip: "172.28.128.128"
 end

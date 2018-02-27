@@ -17,4 +17,5 @@ Vagrantfile.old
 /scripts
 packer/packer
 packer/packer_cache
-packer/output-virtualbox-iso/
+packer/config-files
+packer/output-virtualbox-iso
