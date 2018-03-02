@@ -8,6 +8,9 @@ cd packer
 # debian8 boxes
   ./packer build -force config-files/debian/debian8-{{ size }}.json
 
+# debian9 boxes
+  ./packer build -force config-files/debian/debian9-{{ size }}.json
+
 # ubuntu14 boxes
   ./packer build -force config-files/ubuntu/ubuntu14-{{ size }}.json
 

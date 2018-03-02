@@ -4,6 +4,7 @@ mkdir -p packer/config-files/debian/
 mkdir -p packer/config-files/ubuntu/
 
 {% for HOSTS, OS in [['debian', 'debian8'],
+                     ['debian', 'debian9'],
                      ['centos', 'centos7'],
                      ['ubuntu', 'ubuntu14'],
                      ['ubuntu', 'ubuntu16'],
