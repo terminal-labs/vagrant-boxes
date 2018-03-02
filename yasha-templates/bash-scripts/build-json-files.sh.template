@@ -8,7 +8,8 @@ mkdir -p packer/config-files/ubuntu/
                      ['centos', 'centos7'],
                      ['ubuntu', 'ubuntu14'],
                      ['ubuntu', 'ubuntu16'],
-                     ['fedora', 'fedora25']
+                     ['fedora', 'fedora25'],
+                     ['fedora', 'fedora27']
 ] %}
 
   {% for MB_SIZE, SIZE in [['20480', '20gb'],

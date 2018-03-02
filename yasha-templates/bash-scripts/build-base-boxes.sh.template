@@ -20,4 +20,7 @@ cd packer
 # fedora25 boxes
   ./packer build -force config-files/fedora/fedora25-{{ size }}.json
 
+# fedora27 boxes
+  ./packer build -force config-files/fedora/fedora27-{{ size }}.json
+
 {% endfor %}
