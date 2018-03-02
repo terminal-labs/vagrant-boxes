@@ -6,7 +6,7 @@ See the files in the folder "box-contents" for information about what is in each
 
 Prerequisites:
 
-128GB free disk sapce
+400GB free disk sapce
 
 unzip
 pythoon2.7
