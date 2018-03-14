@@ -19,7 +19,3 @@ Vagrant
 Usage:
 
 clone repo
-
-cd into repo
-
-bash make.sh
