@@ -11,7 +11,7 @@ Prerequisites:
 400GB free disk sapce
 
 unzip
-pythoon2.7
+python2.7
 virtualenv
 Virtualbox
 Vagrant
