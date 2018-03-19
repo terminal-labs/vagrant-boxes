@@ -1,13 +1,26 @@
-{% for os in ['tl-ubuntu-1604-64bit-','tl-debian-jessie-64bit-'] %}
-	{% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
-		cp -r box-creation/debian-family/full-image-dependencies {{ os }}{{ size }}-full/.full-image-dependencies
-		cd {{ os }}{{ size}}-full
-		vagrant up
-		vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
-		vagrant package --output ../packer/builds/{{ os }}{{ size }}-full.box
-		vagrant destroy -f
-		rm -rf .full-image-dependencies
-		rm -rf .vagrant
-		cd -
-	{% endfor %}
+
+{% for guest in ['debian'] %}
+   {% for os in ['ubuntu-1604','debian-9'] %}
+       {% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
+       
+           cp -r packer/scripts/{{ guest }}-family/full-image-dependencies tl-{{ os }}-64bit-{{ size }}-full/.full-image-dependencies
+	   cd tl-{{ os }}-64bit-{{ size}}-full
+           
+	   vagrant up
+	   vagrant ssh -c "cd /vagrant/.full-image-dependencies;sudo bash install-packages.sh"
+	   vagrant package --output ../packer/builds/tl-{{ os }}-64bit-{{ size }}-full.box
+	   vagrant destroy -f
+           
+	   rm -rf .full-image-dependencies
+	   rm -rf .vagrant
+	   cd -
+           
+        {% endfor %}
+   {% endfor %}
 {% endfor %}
+
+# First for loop
+  #,'rhel'] %}
+
+# Second for loop
+  #, 'ubuntu-1404', 'centos-7', 'fedora-25'] %}
