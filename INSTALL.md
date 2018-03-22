@@ -16,7 +16,7 @@ $: git clone [this repository]
 
 $: cd [repository/directory]
 
-$: bash setup-root.sh
+$: sudo bash setup-root.sh
 
 $: bash setup-nonroot.sh
 
