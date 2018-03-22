@@ -1,7 +1,7 @@
-mkdir -p scripts
+mkdir -p bash-scripts
 
 bash build-json-files.sh
 
-yasha yasha-templates/bash-scripts/build-base-boxes.sh.template -o scripts/build-base-boxes.sh
+yasha yasha-templates/bash-templates/build-base-boxes.sh.template -o bash-scripts/build-base-boxes.sh
 
-bash scripts/build-base-boxes.sh
+bash bash-scripts/build-base-boxes.sh

@@ -2,7 +2,7 @@
     "provisioners": [{
         "type": "shell",
         "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
-        "scripts": [ "scripts/debian_family/setup.sh", "scripts/debian_family/cleanup.sh" ]
+        "scripts": [ "scripts/debian-family/setup.sh", "scripts/debian-family/cleanup.sh" ]
     }],
     
     "builders": [{

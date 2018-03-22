@@ -1,5 +1,5 @@
-mkdir -p scripts
+mkdir -p bash-scripts
 
-yasha yasha-templates/bash-scripts/build-full-images.sh.template -o scripts/build-full-images.sh
+yasha yasha-templates/bash-templates/build-full-images.sh.template -o bash-scripts/build-full-images.sh
 
-bash scripts/build-full-images.sh
+bash bash-scripts/build-full-images.sh
