@@ -2,7 +2,7 @@
     "provisioners": [{
         "type": "shell",
         "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
-        "scripts": [ "scripts/rhel-family/setup.sh", "scripts/rhel-family/cleanup.sh" ]
+        "scripts": [ "script-res/rhel-family/setup.sh", "script-res/rhel-family/cleanup.sh" ]
     }],
 
     "builders": [{

@@ -5,11 +5,8 @@ mkdir -p processing
     {% for os in ['ubuntu-1604','debian-8'] %}
         {% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
 
-             cp -r script-res/{{ guest }}-family/full-image-dependencies
-                 processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/full-image-dependencies
-             cp vagrant-res/full-box/Vagrantfile
-                 processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/Vagrantfile
-
+             cp -r script-res/{{ guest }}-family/full-image-dependencies processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/full-image-dependencies
+             cp vagrant-res/full-box/Vagrantfile processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/Vagrantfile
              cd processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
 
              vagrant up
