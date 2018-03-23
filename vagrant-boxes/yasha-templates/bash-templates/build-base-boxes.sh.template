@@ -1,6 +1,6 @@
 cd packer
 
-{% for size in ['2tb'] %} #'20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
+{% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
 
 # centos7 boxes
    ./packer build -force json-res/centos/centos7-{{ size }}.json

@@ -2,7 +2,7 @@ cd packer
 mkdir -p processing/full-box
 
 {% for guest, os in [['ubuntu', 'ubuntu14'],['ubuntu', 'ubuntu16']] %}
-    {% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
+    {% for size in ['20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
 
          mkdir -p processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
              

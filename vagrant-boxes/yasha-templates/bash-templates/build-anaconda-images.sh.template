@@ -1,8 +1,6 @@
 cd packer
 mkdir -p processing/anaconda-box
 
-
-
 {% for guest, os in [['debian', 'debian-8'],
                      ['rhel', 'centos-7'],
                      ['debian', 'ubuntu-14'],
