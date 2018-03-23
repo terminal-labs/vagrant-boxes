@@ -4,6 +4,7 @@
 box_name = File.basename(Dir.getwd)
 
 Vagrant.configure("2") do |config|
+  config.vbguest.auto_update = false
   config.ssh.forward_agent = true
   config.vm.provider :virtualbox do |provider, override|
     provider.name = box_name
