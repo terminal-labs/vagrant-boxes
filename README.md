@@ -5,5 +5,3 @@
 The boxes are hosted at https://app.vagrantup.com/terminal-labs
 
 See the documentation in the "box-docs" directory for information about the individual box classes.
-
-Please see INSTALL.md for system setup for using this repository.
