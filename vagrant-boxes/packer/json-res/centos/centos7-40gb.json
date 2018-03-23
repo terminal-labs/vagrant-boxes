@@ -1,16 +1,16 @@
 {
     "provisioners": [{
         "type": "shell",
-        "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
+        "execute_command":  "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" ,
         "scripts": [ "script-res/rhel-family/setup.sh", "script-res/rhel-family/cleanup.sh" ]
     }],
 
     "builders": [{
         "type": "virtualbox-iso",
         "boot_command":
-        [ {% raw %} "<tab> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos_preseed.cfg <enter>"] {% endraw %},
+        [  "<tab> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos_preseed.cfg <enter>"] ,
         "boot_wait": "5s",
-        "disk_size": {{ SSD }},
+        "disk_size": 40960,
         "guest_os_type": "RedHat_64",
         "headless": false,
         "http_directory": "preseed-res",
@@ -22,17 +22,16 @@
         "ssh_port": 22,
         "ssh_wait_timeout": "600s",
         "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
-        "guest_additions_path": {% raw %} "VBoxGuestAdditions_{{.Version}}.iso" {% endraw %},
+        "guest_additions_path":  "VBoxGuestAdditions_{{.Version}}.iso" ,
         "virtualbox_version_file": ".vbox_version",
-        "vm_name": "tl-centos-7-64bit-{{ SIZE }}",
+        "vm_name": "tl-centos-7-64bit-40gb",
         "vboxmanage": [
-            [ {% raw %} "modifyvm","{{.Name}}","--memory","4096"] {% endraw %},
-            [ {% raw %} "modifyvm","{{.Name}}","--cpus","1"] {% endraw %}
-        ]
+            [  "modifyvm","{{.Name}}","--memory","4096"] ,
+            [  "modifyvm","{{.Name}}","--cpus","1"]         ]
     }],
 
     "post-processors": [{
-        "output": "builds/tl-centos-7-64bit-{{ SIZE }}.box",
+        "output": "builds/tl-centos-7-64bit-40gb.box",
         "type": "vagrant"
     }]
 }

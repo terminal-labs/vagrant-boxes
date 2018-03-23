@@ -1,8 +1,8 @@
 cd packer
 mkdir -p processing/anaconda-box
 
-{% for guest in ['debian', 'rhel'] %}
-    {% for os in ['ubuntu-1604', 'debian-8', 'debian-9', 'ubuntu-1404', 'centos-7', 'fedora-25', 'fedora-27'] %}
+{% for guest in ['debian'] %} #, 'rhel'] %}
+    {% for os in ['ubuntu-1604'] %} #, 'debian-8', 'debian-9', 'ubuntu-1404', 'centos-7', 'fedora-25', 'fedora-27'] %}
         {% for size in ['2tb'] %}
 
             cp -r script-res/{{ guest }}-family/anaconda-image-dependencies processing/anaconda-box/tl-{{ os }}-64bit-{{ size }}-anaconda/anaconda-image-dependencies

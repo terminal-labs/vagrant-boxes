@@ -1,17 +1,19 @@
 cd packer
-mkdir -p processing
+mkdir -p processing/full-box
 
 {% for guest in ['debian'] %}
-    {% for os in ['ubuntu-1604','debian-8'] %}
-        {% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb'] %}
+    {% for os in ['ubuntu-1604'] %} #,'debian-8'] %}
+        {% for size in ['2tb'] %} #'20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
 
+             mkdir -p processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
+             
              cp -r script-res/{{ guest }}-family/full-image-dependencies processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/full-image-dependencies
              cp vagrant-res/full-box/Vagrantfile processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/Vagrantfile
              cd processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
 
              vagrant up
              vagrant ssh -c "cd /vagrant/full-image-dependencies; sudo bash install-packages.sh"
-             vagrant package --output ../../builds/tl-{{ os }}-64bit-{{ size }}-full.box
+             vagrant package --output ../../../builds/tl-{{ os }}-64bit-{{ size }}-full.box
              vagrant destroy -f
 
              rm -rf .vagrant

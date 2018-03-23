@@ -1,7 +1,7 @@
 {
     "provisioners": [{
         "type": "shell",
-        "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
+        "execute_command":  "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" ,
         "scripts": [ "script-res/debian-family/setup.sh", "script-res/debian-family/cleanup.sh" ]
     }],
 
@@ -10,13 +10,13 @@
         "boot_command": [
             "<esc><wait>",
             "install <wait>",
-            {% raw %} " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian9_preseed.cfg <wait>" {% endraw %},
+ " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian9_preseed.cfg <wait>" ,
             "debian-installer=en_US.UTF-8 <wait>",
             "auto <wait>",
             "locale=en_US.UTF-8 <wait>",
             "kbd-chooser/method=us <wait>",
             "keyboard-configuration/xkb-keymap=us <wait>",
-            {% raw %} "netcfg/get_hostname={{ .Name }} <wait>" {% endraw %},
+ "netcfg/get_hostname={{ .Name }} <wait>" ,
             "netcfg/get_domain=vagrantup.com <wait>",
             "fb=false <wait>",
             "debconf/frontend=noninteractive <wait>",
@@ -26,7 +26,7 @@
             "<enter><wait>"
         ],
         "boot_wait": "5s",
-        "disk_size": {{ SSD }},
+        "disk_size": 2097152,
         "guest_os_type": "Debian_64",
         "headless": false,
         "http_directory": "preseed-res",
@@ -38,17 +38,16 @@
         "ssh_port": 22,
         "ssh_wait_timeout": "600s",
         "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-        "guest_additions_path": {% raw %} "VBoxGuestAdditions_{{.Version}}.iso" {% endraw %},
+        "guest_additions_path":  "VBoxGuestAdditions_{{.Version}}.iso" ,
         "virtualbox_version_file": ".vbox_version",
-        "vm_name": "tl-debian-9-64bit-{{ SIZE }}",
+        "vm_name": "tl-debian-9-64bit-2tb",
         "vboxmanage": [
-            [ {% raw %} "modifyvm","{{.Name}}","--memory","4096"] {% endraw %},
-            [ {% raw %} "modifyvm","{{.Name}}","--cpus","1"] {% endraw %}
-        ]
+            [  "modifyvm","{{.Name}}","--memory","4096"] ,
+            [  "modifyvm","{{.Name}}","--cpus","1"]         ]
     }],
 
     "post-processors": [{
-        "output": "builds/tl-debian-9-64bit-{{ SIZE }}.box",
+        "output": "builds/tl-debian-9-64bit-2tb.box",
         "type": "vagrant"
     }]
 }
