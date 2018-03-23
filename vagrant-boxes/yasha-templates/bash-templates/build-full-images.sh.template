@@ -1,30 +1,25 @@
 cd packer
 mkdir -p processing/full-box
 
-{% for guest in ['debian'] %}
-    {% for os in ['ubuntu-1604'] %} #,'debian-8'] %}
-        {% for size in ['2tb'] %} #'20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
+{% for guest, os in [['ubuntu', 'ubuntu14'],['ubuntu', 'ubuntu16']] %}
+    {% for size in ['2tb', '20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
 
-             mkdir -p processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
+         mkdir -p processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
              
-             cp -r script-res/{{ guest }}-family/full-image-dependencies processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/full-image-dependencies
-             cp vagrant-res/full-box/Vagrantfile processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/Vagrantfile
-             cd processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
+         cp -r script-res/{{ guest }}-family/full-image-dependencies processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/full-image-dependencies
+         cp vagrant-res/full-box/Vagrantfile processing/full-box/tl-{{ os }}-64bit-{{ size }}-full/Vagrantfile
+         cd processing/full-box/tl-{{ os }}-64bit-{{ size }}-full
 
-             vagrant up
-             vagrant ssh -c "cd /vagrant/full-image-dependencies; sudo bash install-packages.sh"
-             vagrant package --output ../../../builds/tl-{{ os }}-64bit-{{ size }}-full.box
-             vagrant destroy -f
+         vagrant up
+         vagrant ssh -c "cd /vagrant/full-image-dependencies; sudo bash install-packages.sh"
+         vagrant package --output ../../../builds/tl-{{ os }}-64bit-{{ size }}-full.box
+         vagrant destroy -f
 
-             rm -rf .vagrant
-             cd -
+         rm -rf .vagrant
+         cd -
              
-        {% endfor %}
     {% endfor %}
 {% endfor %}
 
 # First for loop
-  #,'rhel'] %}
-
-# Second for loop
-  #, 'debian-9', 'ubuntu-1404', 'centos-7', 'fedora-25', 'fedora-27'] %}
+    #,['debian', 'debian8'],['debian', 'debian9'],['fedora', 'fedora-25'],['fedora', 'fedora27',['centos', 'centos7']] %}
