@@ -1,0 +1,31 @@
+cd packer
+mkdir -p processing/anaconda-box
+
+{% for guest, os in [['debian', 'debian-8'],
+                     ['rhel', 'centos-7'],
+                     ['debian', 'ubuntu-14'],
+                     ['debian', 'ubuntu-16'],
+                     ['rhel', 'fedora-25']] %}
+                     
+    {% for size in ['2tb'] %}
+    
+        mkdir -p processing/anaconda-box/tl-{{ os }}-64bit-{{ size }}-anaconda
+        
+        cp -r script-res/{{ guest }}-family/anaconda-image-dependencies processing/anaconda-box/tl-{{ os }}-64bit-{{ size }}-anaconda/anaconda-image-dependencies
+        cp vagrant-res/anaconda-box/Vagrantfile processing/anaconda-box/tl-{{ os }}-64bit-{{ size }}-anaconda/Vagrantfile
+        cd processing/anaconda-box/tl-{{ os }}-64bit-{{ size }}-anaconda
+
+        vagrant up
+        vagrant ssh -c "cd /vagrant/anaconda-image-dependencies; sudo bash install-packages.sh"
+        vagrant package --output ../../../builds/tl-{{ os }}-64bit-{{ size }}-anaconda.box
+        vagrant destroy -f
+
+        rm -rf .vagrant
+        cd -
+
+   {% endfor %}
+{% endfor %}
+
+    
+# First for loop
+    #,['debian', 'debian-9'],['rhel', 'fedora-27']] %}

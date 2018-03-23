@@ -1,0 +1,54 @@
+{
+    "provisioners": [{
+        "type": "shell",
+        "execute_command": {% raw %} "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'" {% endraw %},
+        "scripts": [ "script-res/debian-family/setup.sh", "script-res/debian-family/cleanup.sh" ]
+    }],
+
+    "builders": [{
+        "type": "virtualbox-iso",
+        "boot_command": [
+            "<esc><wait>",
+            "install <wait>",
+            {% raw %} " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian8_preseed.cfg <wait>" {% endraw %},
+            "debian-installer=en_US.UTF-8 <wait>",
+            "auto <wait>",
+            "locale=en_US.UTF-8 <wait>",
+            "kbd-chooser/method=us <wait>",
+            "keyboard-configuration/xkb-keymap=us <wait>",
+            {% raw %} "netcfg/get_hostname={{ .Name }} <wait>" {% endraw %},
+            "netcfg/get_domain=vagrantup.com <wait>",
+            "fb=false <wait>",
+            "debconf/frontend=noninteractive <wait>",
+            "console-setup/ask_detect=false <wait>",
+            "console-keymaps-at/keymap=us <wait>",
+            "grub-installer/bootdev=/dev/sda <wait>",
+            "<enter><wait>"
+        ],
+        "boot_wait": "5s",
+        "disk_size": {{ SSD }},
+        "guest_os_type": "Debian_64",
+        "headless": false,
+        "http_directory": "preseed-res",
+        "iso_url": "https://s3-us-west-1.amazonaws.com/terminal-labs-distro-isos/debian-8.8.0-amd64-netinst.iso",
+        "iso_checksum_type": "sha256",
+        "iso_checksum": "2c07ff8cc766767610566297b8729740f923735e790c8e78b718fb93923b448e",
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "ssh_port": 22,
+        "ssh_wait_timeout": "600s",
+        "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+        "guest_additions_path": {% raw %} "VBoxGuestAdditions_{{.Version}}.iso" {% endraw %},
+        "virtualbox_version_file": ".vbox_version",
+        "vm_name": "tl-debian-jessie-64bit-{{ SIZE }}",
+        "vboxmanage": [
+            [ {% raw %} "modifyvm","{{.Name}}","--memory","4096"] {% endraw %},
+            [ {% raw %} "modifyvm","{{.Name}}","--cpus","1"] {% endraw %}
+        ]
+    }],
+
+    "post-processors": [{
+        "output": "builds/tl-debian-jessie-64bit-{{ SIZE }}.box",
+        "type": "vagrant"
+    }]
+}

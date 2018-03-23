@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+box_name = File.basename(Dir.getwd)
+
+Vagrant.configure("2") do |config|
+  config.vbguest.auto_update = false
+  config.ssh.forward_agent = true
+  config.vm.provider :virtualbox do |provider, override|
+    provider.name = box_name
+    override.vm.box = box_name + ".box"
+    base_box_name = box_name.dup
+    base_box_name.slice! "-anaconda"
+    override.vm.box_url = ["file://../../../builds/" + box_name + ".box", "file://../../../builds/" + base_box_name + ".box"]
+    provider.customize ['modifyvm', :id, '--nictype1', 'virtio']
+    provider.customize ['modifyvm', :id, '--nictype2', 'virtio']
+  end
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+end

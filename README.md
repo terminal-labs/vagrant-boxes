@@ -4,18 +4,4 @@
 
 The boxes are hosted at https://app.vagrantup.com/terminal-labs
 
-See the files in the folder "box-contents" for information about what is in each box class.
-
-Prerequisites:
-
-400GB free disk sapce
-
-unzip
-python2.7
-virtualenv
-Virtualbox
-Vagrant
-
-Usage:
-
-clone repo
+See the documentation in the "box-docs" directory for information about the individual box classes.
