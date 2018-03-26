@@ -9,6 +9,7 @@ syntax: glob
 .DS_Store
 venv
 *.box
+*.egg-info
 .vagrant
 
 vagrant-boxes/bash-scripts
@@ -19,4 +20,3 @@ vagrant-boxes/packer/output-virtualbox-iso
 **/processing
 **/packer_cache
 **/json-res
-
