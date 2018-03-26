@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 import vagrant_boxes
 
 setup(
-    name='vagrant-boxes',
+    name='Vagrant-boxes',
     version=vagrant_boxes.__version__,
     description=vagrant_boxes.__description__,
     url='https://github.com/terminal-labs/vagrant-boxes',

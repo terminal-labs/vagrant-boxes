@@ -8,7 +8,7 @@ version = pkg_resources.get_distribution('vagrant-boxes').version
 def download_packer():
     # TODO: replace the following with Python
     # TODO: Download the most recent stable Packer, not pinned version (unless stable is broken)
-    cmd = '''cd vagrant-boxes/packer
+    cmd = '''cd vagrant_boxes/packer
 wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
 unzip -o packer_1.0.0_linux_amd64.zip
 rm packer_1.0.0_linux_amd64.zip'''
