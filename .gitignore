@@ -11,6 +11,7 @@ venv
 *.box
 *.egg-info
 .vagrant
+*zip*
 
 vagrant-boxes/bash-scripts
 vagrant-boxes/packer/packer
