@@ -5,3 +5,5 @@
 The boxes are hosted at https://app.vagrantup.com/terminal-labs
 
 See the documentation in the "box-docs" directory for information about the individual box classes.
+
+At this time, this project requires the system package `unzip` be installed. This will be fixed in a later version.
