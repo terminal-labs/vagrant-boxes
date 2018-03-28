@@ -12,7 +12,7 @@
         "boot_wait": "5s",
         "disk_size": {{ SSD }},
         "guest_os_type": "Fedora_64",
-        "headless": false,
+        "headless": true,
         "http_directory": "preseed-res",
         "iso_url": "https://s3-us-west-1.amazonaws.com/terminal-labs-distro-isos/Fedora-Server-netinst-x86_64-27-1.6.iso",
         "iso_checksum_type": "sha256",
