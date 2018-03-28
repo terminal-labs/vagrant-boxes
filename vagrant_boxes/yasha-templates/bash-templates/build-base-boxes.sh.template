@@ -1,0 +1,26 @@
+cd packer
+
+{% for size in ['20gb', '30gb', '40gb', '60gb', '80gb', '2tb'] %}
+
+# centos7 boxes
+   ./packer build -force json-res/centos/centos-7-{{ size }}.json
+
+# debian8 boxes
+   ./packer build -force json-res/debian/debian-8-{{ size }}.json
+
+# debian9 boxes
+   ./packer build -force json-res/debian/debian-9-{{ size }}.json
+
+# ubuntu14 boxes
+   ./packer build -force json-res/ubuntu/ubuntu-14-{{ size }}.json
+
+# ubuntu16 boxes
+   ./packer build -force json-res/ubuntu/ubuntu-16-{{ size }}.json
+
+# fedora25 boxes
+   ./packer build -force json-res/fedora/fedora-25-{{ size }}.json
+
+# fedora27 boxes
+   ./packer build -force json-res/fedora/fedora-27-{{ size }}.json
+
+{% endfor %}

@@ -9,14 +9,15 @@ syntax: glob
 .DS_Store
 venv
 *.box
+*.egg-info
 .vagrant
+*zip*
 
-vagrant-boxes/bash-scripts
-vagrant-boxes/packer/packer
-vagrant-boxes/packer/output-virtualbox-iso
+vagrant_boxes/bash-scripts
+vagrant_boxes/packer/packer
+vagrant_boxes/packer/output-virtualbox-iso
 
 **/builds
 **/processing
 **/packer_cache
 **/json-res
-
