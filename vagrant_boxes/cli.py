@@ -3,19 +3,48 @@
 
 import os
 import pkg_resources
+import shutil
+import subprocess
+import urllib.request
+from distutils.version import StrictVersion
+from zipfile import ZipFile
 
+from bs4 import BeautifulSoup, SoupStrainer
 import click
 
 version = pkg_resources.get_distribution('vagrant-boxes').version
 
 def download_packer():
-    # TODO: Download the most recent stable Packer, not pinned version (unless stable is broken)
-    cmd = '''cd vagrant_boxes/packer
-    wget https://releases.hashicorp.com/packer/1.0.0/packer_1.0.0_linux_amd64.zip
-    unzip -o packer_1.0.0_linux_amd64.zip
-    rm packer_1.0.0_linux_amd64.zip'''
-    os.system(cmd)
+    resp = urllib.request.urlopen("https://releases.hashicorp.com/packer/")
+    soup = BeautifulSoup(resp, "html.parser")
+    versions = []
+    for link in soup.find_all('a', href=True):
+        # look for link of form '/packer/version/'
+        if link['href'].split('/')[1] == 'packer':
+            versions.append(link['href'].split('/')[2])
 
+    versions.sort(key=StrictVersion, reverse=True)
+    latest = versions[0]
+    filename = 'packer_{}_linux_amd64.zip'.format(latest)
+    url = "https://releases.hashicorp.com/packer/{}/{}".format(latest, filename)
+    with urllib.request.urlopen(url) as response, open(
+            filename, 'wb') as out_file:
+        shutil.copyfileobj(response, out_file)
+    zipfile = filename
+    with ZipFile(zipfile) as zf:
+        zf.extractall('vagrant_boxes/packer')
+    packer_path = 'vagrant_boxes/packer/packer'
+    st = os.stat(packer_path)
+    os.chmod(packer_path, st.st_mode | 0o111) # make executable
+    click.secho('Downloaded Packer version {}\n'.format(latest), fg='green')
+
+def remove_boxes():
+    click.echo('Removed the following boxes:')
+    boxes = str(subprocess.check_output('vagrant box list', shell=True), 'utf-8')
+    if 'There are no installed boxes!' in boxes:
+        click.secho(boxes, fg='yellow')
+    else:
+        os.system("vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f")
 
 CONTEXT_SETTINGS = {
     'help_option_names': ['-h', '--help'],
@@ -76,11 +105,10 @@ def build_json_cmd():
 def remove_boxes_cmd(force):
     '''Remove all Vagrant boxes
     '''
-    cmd = "vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f"
     if force:
-        os.system(cmd)
+        remove_boxes()
     elif click.confirm('Do you want to remove all vagrant boxes?'):
-        os.system(cmd)
+        remove_boxes()
 
 @cli.command('setup')
 @click.option('-f', '--force', is_flag=True,
