@@ -8,4 +8,4 @@ See the documentation in the `docs/` directory for information about the individ
 
 At this time, this project requires the system package `unzip` be installed. This will be fixed in a later version.
 
-Install this by cloning the repo and running `pip install -e .` inside it.
+Install this by cloning the repo and running `pip install -e .` inside it. See `vagrant-boxes -h` for a list of commands.
