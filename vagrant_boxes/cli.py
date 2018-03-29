@@ -51,6 +51,7 @@ CONTEXT_SETTINGS = {
 
 ### CLI entry point
 @click.group(context_settings=CONTEXT_SETTINGS)
+@click.version_option(prog_name='vagrant-boxes', version=version)
 @click.pass_context
 def cli(ctx):
     '''Entry point
