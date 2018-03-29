@@ -30,8 +30,7 @@ def download_packer():
     with urllib.request.urlopen(url) as response, open(
             filename, 'wb') as out_file:
         shutil.copyfileobj(response, out_file)
-    zipfile = filename
-    with ZipFile(zipfile) as zf:
+    with ZipFile(filename) as zf:
         zf.extractall('vagrant_boxes/packer')
     packer_path = 'vagrant_boxes/packer/packer'
     st = os.stat(packer_path)
