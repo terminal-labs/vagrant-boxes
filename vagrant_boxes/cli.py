@@ -40,7 +40,7 @@ def download_packer():
 
 def remove_boxes():
     click.echo('Removed the following boxes:')
-    boxes = str(subprocess.check_output('vagrant box list', shell=True), 'utf-8')
+    boxes = str(subprocess.check_output(['vagrant', 'box', 'list'], stderr=subprocess.STDOUT), 'utf-8')
     if 'There are no installed boxes!' in boxes:
         click.secho(boxes, fg='yellow')
     else:
